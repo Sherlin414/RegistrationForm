@@ -1,0 +1,26 @@
+Pipeline{
+    Agent Any
+    Stages{
+        Stage('Checkout')
+        {
+            Checkout scm
+        }
+        Stage('Install Dependencies')
+        {
+            Bat 'npm install'
+        }
+        Stage('Run build')
+        {
+            Bat 'npm run build'
+        }
+    }
+    Post{
+        Success{
+            Echo 'Successfully deployed'
+        }
+        Failure
+        {
+            Echo 'Failure'
+        }
+    }
+}
