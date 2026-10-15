@@ -3,15 +3,19 @@ Pipeline{
     Stages{
         Stage('Checkout')
         {
+
             Checkout scm
+Echo 'Successfully checkout from scm'
         }
         Stage('Install Dependencies')
         {
             Bat 'npm install'
+Echo 'Successfully installed'
         }
         Stage('Run build')
         {
             Bat 'npm run build'
+Echo 'Successfully run'
         }
     }
     Post{
